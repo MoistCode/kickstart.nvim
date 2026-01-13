@@ -219,6 +219,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.api.nvim_set_hl(0, 'DiffAdd', { bg = '#203b20' }) -- typically “added” (often on the right)
+vim.api.nvim_set_hl(0, 'DiffDelete', { bg = '#3b2020' }) -- typically “deleted” (often on the left)
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
