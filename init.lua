@@ -219,9 +219,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.api.nvim_set_hl(0, 'DiffAdd', { bg = '#203b20' }) -- typically “added” (often on the right)
-vim.api.nvim_set_hl(0, 'DiffDelete', { bg = '#3b2020' }) -- typically “deleted” (often on the left)
+-- Basic Neovim diff groups
+vim.api.nvim_set_hl(0, 'DiffAdd', { fg = 'NONE', bg = '#203b20' }) -- green-ish
+vim.api.nvim_set_hl(0, 'DiffDelete', { fg = 'NONE', bg = '#3b2020' }) -- red-ish
+vim.api.nvim_set_hl(0, 'DiffChange', { fg = 'NONE', bg = '#203040' })
+vim.api.nvim_set_hl(0, 'DiffText', { fg = 'NONE', bg = '#305080' })
 
+-- Diffview-specific groups (used in its panels)
+vim.api.nvim_set_hl(0, 'DiffviewDiffAdd', { link = 'DiffAdd' })
+vim.api.nvim_set_hl(0, 'DiffviewDiffDelete', { link = 'DiffDelete' })
+vim.api.nvim_set_hl(0, 'DiffviewDiffChange', { link = 'DiffChange' })
+vim.api.nvim_set_hl(0, 'DiffviewDiffText', { link = 'DiffText' })
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -981,6 +989,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.lualines',
   require 'kickstart.plugins.diffview',
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
