@@ -211,7 +211,7 @@ vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
 -- Buffer navigation (like switching tabs in Cursor/VS Code)
 vim.keymap.set('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'Previous buffer' })
 vim.keymap.set('n', '<S-l>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
-vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = 'Delete buffer' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bprevious | bdelete #<cr>', { desc = 'Delete buffer' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

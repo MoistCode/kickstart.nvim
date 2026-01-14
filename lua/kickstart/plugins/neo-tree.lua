@@ -14,12 +14,18 @@ return {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
+    open_files_do_not_replace_types = { 'terminal', 'trouble', 'qf' },
+    window = {
+      position = 'left',
+      width = 35,
+    },
     filesystem = {
       window = {
         mappings = {
           ['\\'] = 'close_window',
         },
       },
+      hijack_netrw_behavior = 'open_current',
     },
   },
 }
