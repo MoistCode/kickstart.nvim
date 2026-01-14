@@ -17,7 +17,7 @@ return {
     open_files_do_not_replace_types = { 'terminal', 'trouble', 'qf' },
     window = {
       position = 'left',
-      width = 35,
+      width = 50,
     },
     filesystem = {
       window = {
