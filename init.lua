@@ -258,8 +258,14 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
-
+  {
+    'NMAC427/guess-indent.nvim',
+    config = function()
+      require('guess-indent').setup {
+        auto_cmd = true, -- or false if you want to run :GuessIndent manually
+      }
+    end,
+  },
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
@@ -1023,5 +1029,16 @@ require('lazy').setup({
   },
 })
 
+local opt = vim.opt
+
+opt.foldmethod = 'indent'
+opt.foldenable = true -- enable folding
+opt.foldlevel = 99 -- start with all folds open
+opt.foldlevelstart = 99 -- keep them open when opening files
+
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.softtabstop = 2
+opt.expandtab = true
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
